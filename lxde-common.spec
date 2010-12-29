@@ -1,12 +1,13 @@
 Summary:	Default configuration for LXDE
 Name:		lxde-common
 Version:	0.5.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.gz
 # Source0-md5:	23606ab3d6e1039386d62a4b68b4ffc6
 URL:		http://www.lxde.org/
+Requires:	xorg-app-xprop
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
