@@ -2,14 +2,17 @@ Summary:	Default configuration for LXDE
 Summary(pl.UTF-8):	Domyślna konfiguracja LXDE
 Name:		lxde-common
 Version:	0.99.2
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.xz
 # Source0-md5:	14a9d19c4576dc15d985453ccb8ca9f6
+Patch0:		session.patch
 URL:		http://www.lxde.org/
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	ConsoleKit
+Requires:	fonts-TTF-DejaVu
 Requires:	openbox
 Requires:	xorg-app-xprop
 BuildArch:	noarch
@@ -24,6 +27,7 @@ LXDE.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure

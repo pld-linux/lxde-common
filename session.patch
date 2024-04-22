@@ -1,0 +1,13 @@
+diff -ur lxde-common-0.99.2.orig/startlxde.in lxde-common-0.99.2/startlxde.in
+--- lxde-common-0.99.2.orig/startlxde.in	2016-11-21 22:59:09.000000000 +0000
++++ lxde-common-0.99.2/startlxde.in	2018-07-05 09:56:38.521863200 +0000
+@@ -44,4 +44,8 @@
+ export XDG_CURRENT_DESKTOP="LXDE"
+ 
+ # Start the LXDE session
+-exec @prefix@/bin/lxsession -s LXDE -e LXDE
++if which ck-launch-session >/dev/null; then
++	exec ck-launch-session @prefix@/bin/lxsession -s LXDE -e LXDE
++else
++	exec @prefix@/bin/lxsession -s LXDE -e LXDE
++fi
